@@ -47,6 +47,12 @@ def main() -> int:
     if written != ENTRY:
         print("entry.txt does not match the entry after writing", file=sys.stderr)
         return 1
+    if len(written.split()) != 100:
+        print(
+            f"entry.txt is {len(written.split())} words, expected 100",
+            file=sys.stderr,
+        )
+        return 1
     if not (MIN_CHARS <= len(written) <= MAX_CHARS):
         print(
             f"entry.txt is {len(written)} characters, outside the 1-600 gate",
